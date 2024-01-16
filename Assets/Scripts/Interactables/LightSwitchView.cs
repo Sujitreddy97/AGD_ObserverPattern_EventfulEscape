@@ -3,16 +3,19 @@ using UnityEngine;
 
 public class LightSwitchView : MonoBehaviour, IInteractable
 {
+    public static LightSwitchView Instance { get; private set; }
+
     [SerializeField] private List<Light> lightsources = new List<Light>();
     private SwitchState currentState;
 
     public delegate void LightStateDelegate();//Signature of delegate
-    public LightStateDelegate lightSwitch;//instance
+    public static LightStateDelegate lightSwitch;//instance
 
     private void OnEnable()
     {
-        lightSwitch = OnLightSwitchToggled;
+        lightSwitch += OnLightSwitchToggled;
     }
+
 
     private void Start() => currentState = SwitchState.Off;
 
