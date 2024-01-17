@@ -42,6 +42,6 @@ public class PlayerSanity : MonoBehaviour
             sanityLevel = 0;
             GameService.Instance.GameOver();
         }
-        GameService.Instance.GetGameUI().UpdateInsanity(1f - sanityLevel / maxSanity);
+        GameService.Instance.GetGameUI().updateInsanity(1f - sanityLevel / maxSanity);
     }
 }
