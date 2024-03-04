@@ -26,8 +26,8 @@ public class GameUIView : MonoBehaviour
         EventService.Instance.OnPlayerEscapedEvent.AddListener(OnPlayerEscaped);
         EventService.Instance.OnPlayerDeathEvent.AddListener(SetRedVignette);
         EventService.Instance.OnPlayerDeathEvent.AddListener(OnPlayerDeath);
-        EventService.Instance.OnRatRush.AddListener(SetRedVignette);
-        EventService.Instance.OnSkullDrop.AddListener(SetRedVignette);
+        EventService.Instance.OnRatRushEvent.AddListener(SetRedVignette);
+        EventService.Instance.OnSkullDropEvent.AddListener(SetRedVignette);
         tryAgainButton.onClick.AddListener(OnTryAgainButtonClicked);
         quitButton.onClick.AddListener(OnQuitButtonClicked);
     }
@@ -39,8 +39,8 @@ public class GameUIView : MonoBehaviour
         EventService.Instance.OnPlayerEscapedEvent.RemoveListener(OnPlayerEscaped);
         EventService.Instance.OnPlayerDeathEvent.RemoveListener(SetRedVignette);
         EventService.Instance.OnPlayerDeathEvent.RemoveListener(OnPlayerDeath);
-        EventService.Instance.OnRatRush.RemoveListener(SetRedVignette);
-        EventService.Instance.OnSkullDrop.RemoveListener(SetRedVignette);
+        EventService.Instance.OnRatRushEvent.RemoveListener(SetRedVignette);
+        EventService.Instance.OnSkullDropEvent.RemoveListener(SetRedVignette);
     }
 
     public void UpdateInsanity(float playerSanity) => insanityImage.rectTransform.localScale = new Vector3(1, playerSanity, 1);
